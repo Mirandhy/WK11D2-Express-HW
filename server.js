@@ -12,9 +12,20 @@ app.get('/greeting', (req, res) => {
 });
 
 
+/*tip calculator */
+app.get('/tip/:total/:tipPercentage', (req, res) =>{
+    const total = Number(req.params.total);
+    const tipPercentage = Number((`${req.params.tipPercentage}`) / 100);
+    const newTotal = total * tipPercentage;
+
+    res.send(`${newTotal}`)
+    
+})
+
 
 
 
 app.listen(port, () => {
     console.log("The Listening on http://localhost:3000")
 })
+
